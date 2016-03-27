@@ -16,7 +16,7 @@ namespace GoogleTestAdapterUiTests
         [ClassInitialize]
         public static void SetupVanillaVsExperimentalInstance(TestContext testContext)
         {
-            VS.SetupVanillaVsExperimentalInstance("GoogleTestAdapterUiTests");
+            VS.SetupVanillaVsExperimentalInstance("GoogleTestAdapterUiTests", VsExperimentalInstance.Versions.VS2015);
             VS.LaunchVsExperimentalInstance();
         }
 

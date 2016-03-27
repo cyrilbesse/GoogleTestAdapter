@@ -22,6 +22,7 @@ namespace GoogleTestAdapter.VsPackage
         }
 
         protected abstract string GetAdapterIntegration();
+        protected abstract VsExperimentalInstance.Versions GetVersion();
 
         public static void GetDirectories(out string testAdapterDir, out string testSolutionFile)
         {
@@ -40,7 +41,7 @@ namespace GoogleTestAdapter.VsPackage
         public virtual void Console_ListDiscoverers_DiscovererIsListed()
         {
             string arguments = CreateListDiscoverersArguments();
-            string output = RunExecutableAndGetOutput(_solutionFile, arguments);
+            string output = RunExecutableAndGetOutput(_solutionFile, arguments, GetVersion());
             Assert.IsTrue(output.Contains(@"executor://GoogleTestRunner/v1"));
         }
 
@@ -49,7 +50,7 @@ namespace GoogleTestAdapter.VsPackage
         public virtual void Console_ListExecutors_ExecutorIsListed()
         {
             string arguments = CreateListExecutorsArguments();
-            string output = RunExecutableAndGetOutput(_solutionFile, arguments);
+            string output = RunExecutableAndGetOutput(_solutionFile, arguments, GetVersion());
             Assert.IsTrue(output.Contains(@"executor://GoogleTestRunner/v1"));
         }
 
@@ -58,14 +59,14 @@ namespace GoogleTestAdapter.VsPackage
         public virtual void Console_ListSettingsProviders_SettingsProviderIsListed()
         {
             string arguments = CreateListSettingsProvidersArguments();
-            string output = RunExecutableAndGetOutput(_solutionFile, arguments);
+            string output = RunExecutableAndGetOutput(_solutionFile, arguments, GetVersion());
             Assert.IsTrue(output.Contains(@"GoogleTestAdapter"));
         }
 
 
-        public static string RunExecutableAndGetOutput(string solutionFile, string arguments)
+        public static string RunExecutableAndGetOutput(string solutionFile, string arguments, VsExperimentalInstance.Versions version)
         {
-            string command = VsExperimentalInstance.GetVsTestConsolePath(VsExperimentalInstance.Versions.VS2015);
+            string command = VsExperimentalInstance.GetVsTestConsolePath(version);
             string workingDir = "";
 
             TestProcessLauncher launcher = new TestProcessLauncher();
@@ -124,6 +125,13 @@ namespace GoogleTestAdapter.VsPackage
             if (Regex.IsMatch(resultString, noDataAdapterPattern))
             {
                 resultString = Regex.Replace(resultString, noDataAdapterPattern, "");
+                resultString += "\n\nGoogle Test Adapter Coverage Marker";
+            }
+
+            string noDataAdapterPatternVs2013 = "Warning: Diagnostic data adapter message: Could not find diagnostic data adapter 'Code Coverage'.  Make sure diagnostic data adapter is installed and try again.\n\n";
+            if (Regex.IsMatch(resultString, noDataAdapterPatternVs2013))
+            {
+                resultString = Regex.Replace(resultString, noDataAdapterPatternVs2013, "");
                 resultString += "\n\nGoogle Test Adapter Coverage Marker";
             }
 

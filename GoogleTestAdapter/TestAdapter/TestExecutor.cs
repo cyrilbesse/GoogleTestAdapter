@@ -142,7 +142,7 @@ namespace GoogleTestAdapter.TestAdapter
             IDebuggedProcessLauncher launcher = new DebuggedProcessLauncher(frameworkHandle);
             Executor = new GoogleTestExecutor(TestEnvironment);
             Executor.RunTests(allTestCasesInExecutables, testCasesToRun, reporter, launcher,
-                runContext.IsBeingDebugged, runContext.SolutionDirectory);
+                runContext.IsBeingDebugged, runContext.SolutionDirectory ?? "");
             reporter.AllTestsFinished();
         }
 

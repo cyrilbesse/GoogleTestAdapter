@@ -1,15 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using GoogleTestAdapterUiTests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GoogleTestAdapter.VsPackage
 {
 
     [TestClass]
-    public class ConsoleDllIntegrationTests : AbstractConsoleIntegrationTests
+    public class ConsoleVs2015DllIntegrationTests : AbstractConsoleIntegrationTests
     {
 
         protected override string GetAdapterIntegration()
         {
             return @"/TestAdapterPath:" + TestAdapterDir;
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2015;
         }
 
         #region method stubs for code coverage

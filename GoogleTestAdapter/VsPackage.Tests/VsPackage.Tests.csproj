@@ -148,7 +148,8 @@
     <Compile Include="..\Core\Helpers\ProcessWaiter.cs">
       <Link>Helpers\ProcessWaiter.cs</Link>
     </Compile>
-    <Compile Include="ConsoleDllIntegrationTests.cs" />
+    <Compile Include="ConsoleVs2013DllIntegrationTests.cs" />
+    <Compile Include="ConsoleVs2015DllIntegrationTests.cs" />
     <Compile Include="Helpers\CsvReader.cs" />
     <Compile Include="Helpers\RegistryKeyExtensions.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />

@@ -377,13 +377,14 @@ namespace GoogleTestAdapterUiTests
             noSettingsFile = Path.Combine(basePath, @"SampleTests\No.runsettings");
         }
 
-        public static void SetupVanillaVsExperimentalInstance(string suffix)
+        public static void SetupVanillaVsExperimentalInstance(string suffix, 
+            VsExperimentalInstance.Versions version)
         {
             AskIfNotOnBuildServerAndProductiveVS(suffix);
 
             try
             {
-                visualStudioInstance = new VsExperimentalInstance(VsExperimentalInstance.Versions.VS2015, suffix);
+                visualStudioInstance = new VsExperimentalInstance(version, suffix);
                 if (string.IsNullOrEmpty(suffix))
                 {
                     keepDirtyVsInstance = true;

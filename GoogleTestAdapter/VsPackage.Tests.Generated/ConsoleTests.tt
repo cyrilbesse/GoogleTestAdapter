@@ -38,13 +38,14 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
 
         private void RunTestsAndCheckOutput(string solutionFile, string typeName, string arguments, [CallerMemberName] string testCaseName = null)
         {
-            string resultString = AbstractConsoleIntegrationTests.RunExecutableAndGetOutput(solutionFile, arguments);
+            string resultString = AbstractConsoleIntegrationTests.RunExecutableAndGetOutput(solutionFile, arguments, GetVersion());
 			string projectDir = Path.Combine(Path.GetDirectoryName(solutionFile), @"..\GoogleTestAdapter\VsPackage.Tests.Generated");
             new ResultChecker(Path.Combine(projectDir, "GoldenFiles"), Path.Combine(projectDir, "TestErrors"), ".txt")
 				.CheckResults(resultString, typeName, testCaseName);
         }
 
         protected abstract string GetAdapterIntegration();
+        protected abstract VsExperimentalInstance.Versions GetVersion();
 
 		<#
 		List<Line> lines = reader.GetObjects();
@@ -76,11 +77,54 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
 
 
 	[TestClass]
-	public class ConsoleDllTests : AbstractConsoleTests
+	public class ConsoleVs2015DllTests : AbstractConsoleTests
 	{
         protected override string GetAdapterIntegration()
         {
             return @"/TestAdapterPath:" + testAdapterDir;
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2015;
+        }
+
+		#region method stubs for code coverage
+
+		<# foreach (Line line in lines) { #>
+
+		[TestMethod]
+        [TestCategory("End to end")]
+		public override void <#= line.MethodName #>()
+		{
+			base.<#= line.MethodName #>();
+		}
+		<# } #>
+
+		<# foreach (string executable in executables.Keys) { #>
+
+		[TestMethod]
+        [TestCategory("End to end")]
+		public override void List_TestsOf_<#= executable #>()
+		{
+			base.List_TestsOf_<#= executable #>();
+		}
+		<# } #>
+
+		#endregion
+	}
+
+	[TestClass]
+	public class ConsoleVs2013DllTests : AbstractConsoleTests
+	{
+        protected override string GetAdapterIntegration()
+        {
+            return @"/TestAdapterPath:" + testAdapterDir;
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2013;
         }
 
 		#region method stubs for code coverage
@@ -110,12 +154,12 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
 
 	<# if (AbstractConsoleIntegrationTests.IsRunningOnBuildServer()) { #>
 	[TestClass]
-	public class ConsoleVsixTests : AbstractConsoleTests
+	public class ConsoleVs2013VsixTests : AbstractConsoleTests
 	{
         [ClassInitialize]
         public static void InstallVsix(TestContext testContext)
         {
-            VS.SetupVanillaVsExperimentalInstance("");
+            VS.SetupVanillaVsExperimentalInstance("", VsExperimentalInstance.Versions.VS2013);
         }
 
         [ClassCleanup]
@@ -127,6 +171,61 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
         protected override string GetAdapterIntegration()
         {
             return @"/UseVsixExtensions:true";
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2013;
+        }
+
+		#region method stubs for code coverage
+		<# foreach (Line line in lines) { #>
+
+		[TestMethod]
+        [TestCategory("End to end")]
+		public override void <#= line.MethodName #>()
+		{
+			base.<#= line.MethodName #>();
+		}
+		<# } #>
+
+		<# foreach (string executable in executables.Keys) { #>
+
+		[TestMethod, Ignore]
+        [TestCategory("End to end")]
+		public override void List_TestsOf_<#= executable #>()
+		{
+			base.List_TestsOf_<#= executable #>();
+		}
+		<# } #>
+
+		#endregion
+
+	}
+
+	[TestClass]
+	public class ConsoleVs2015VsixTests : AbstractConsoleTests
+	{
+        [ClassInitialize]
+        public static void InstallVsix(TestContext testContext)
+        {
+            VS.SetupVanillaVsExperimentalInstance("", VsExperimentalInstance.Versions.VS2015);
+        }
+
+        [ClassCleanup]
+        public static void Cleanup()
+        {
+            VS.CleanVsExperimentalInstance();
+        }
+
+        protected override string GetAdapterIntegration()
+        {
+            return @"/UseVsixExtensions:true";
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2015;
         }
 
 		#region method stubs for code coverage
@@ -155,13 +254,13 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
 	}
 
     [TestClass]
-    public class ConsoleVsixIntegrationTests : AbstractConsoleIntegrationTests
+    public class ConsoleVs2015VsixIntegrationTests : AbstractConsoleIntegrationTests
     {
 
         [ClassInitialize]
         public static void InstallVsix(TestContext testContext)
         {
-            VS.SetupVanillaVsExperimentalInstance("");
+            VS.SetupVanillaVsExperimentalInstance("", VsExperimentalInstance.Versions.VS2015);
         }
 
         [ClassCleanup]
@@ -175,9 +274,66 @@ namespace GoogleTestAdapter.VsPackage.GeneratedTests
             return @"/UseVsixExtensions:true";
         }
 
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2015;
+        }
+
         #region method stubs for code coverage
 
         [TestMethod]
+        [TestCategory("End to end")]
+        public override void Console_ListDiscoverers_DiscovererIsListed()
+        {
+            base.Console_ListDiscoverers_DiscovererIsListed();
+        }
+
+        [TestMethod]
+        [TestCategory("End to end")]
+        public override void Console_ListExecutors_ExecutorIsListed()
+        {
+            base.Console_ListExecutors_ExecutorIsListed();
+        }
+
+        [TestMethod]
+        [TestCategory("End to end")]
+        public override void Console_ListSettingsProviders_SettingsProviderIsListed()
+        {
+            base.Console_ListSettingsProviders_SettingsProviderIsListed();
+        }
+
+        #endregion
+	}
+
+    [TestClass]
+    public class ConsoleVs2013VsixIntegrationTests : AbstractConsoleIntegrationTests
+    {
+
+        [ClassInitialize]
+        public static void InstallVsix(TestContext testContext)
+        {
+            VS.SetupVanillaVsExperimentalInstance("", VsExperimentalInstance.Versions.VS2013);
+        }
+
+        [ClassCleanup]
+        public static void Cleanup()
+        {
+            VS.CleanVsExperimentalInstance();
+        }
+
+        protected override string GetAdapterIntegration()
+        {
+            return @"/UseVsixExtensions:true";
+        }
+
+        protected override VsExperimentalInstance.Versions GetVersion()
+        {
+            return VsExperimentalInstance.Versions.VS2013;
+        }
+
+        #region method stubs for code coverage
+
+        [TestMethod, Ignore]
         [TestCategory("End to end")]
         public override void Console_ListDiscoverers_DiscovererIsListed()
         {
