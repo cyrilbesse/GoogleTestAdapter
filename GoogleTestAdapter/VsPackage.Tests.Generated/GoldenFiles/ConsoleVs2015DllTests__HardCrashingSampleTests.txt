@@ -37,6 +37,7 @@ at crash suspect in ${BaseDir}\sampletests\crashingtests\crashingtests.cpp:line 
    reason is probably a crash of test Crashing.TheCrash
 Stack Trace:
 at crash suspect in ${BaseDir}\sampletests\crashingtests\crashingtests.cpp:line 21Test Run Failed.
+
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\SampleTests\${ConfigurationName}\CrashingTests.exe
 
 

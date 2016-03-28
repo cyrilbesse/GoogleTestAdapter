@@ -140,8 +140,8 @@ namespace GoogleTestAdapter.VsPackage
             Match match = Regex.Match(resultString, testInformationPattern);
             if (match.Success)
             {
-                resultString = resultString.Trim() + "\n";
-                resultString = resultString.Replace(match.Value, "");
+                resultString = Regex.Replace(resultString, testInformationPattern, "");
+                resultString = resultString.Trim() + "\n\n";
                 resultString += match.Value + "\n";
             }
 

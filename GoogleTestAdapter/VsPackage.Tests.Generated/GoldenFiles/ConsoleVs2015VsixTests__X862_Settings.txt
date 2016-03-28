@@ -11,6 +11,7 @@ Passed   BarTest.MethodBarDoesAbc
 Total tests: 2. Passed: 2. Failed: 0. Skipped: 0.
 Test Run Successful.
 Test execution time: ${RunTime}
+
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\ExternallyLinkedGoogleTests\ExternallyLinkedGoogleTests.exe
 
 

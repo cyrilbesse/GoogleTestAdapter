@@ -73,6 +73,7 @@ The following Tests are available:
     PointerParameterizedTests.CheckStringLength/0 [(${MemoryLocation} pointing to "", 0)]
     PointerParameterizedTests.CheckStringLength/1 [(${MemoryLocation} pointing to "Test", 4)]
     PointerParameterizedTests.CheckStringLength/2 [(${MemoryLocation} pointing to "ooops", 23)]
+
 Information: Found ${NrOfTests} tests in executable ..\..\..\..\SampleTests\${ConfigurationName}\Tests.exe
 
 
