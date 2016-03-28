@@ -16,4 +16,3 @@ Google Test Adapter Coverage Marker
 
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\SampleTests\${ConfigurationName}\Tests.exe
 
-

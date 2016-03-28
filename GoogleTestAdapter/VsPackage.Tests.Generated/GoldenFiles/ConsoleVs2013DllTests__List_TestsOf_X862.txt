@@ -6,4 +6,3 @@ The following Tests are available:
 
 Information: Found ${NrOfTests} tests in executable ..\..\..\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\ExternallyLinkedGoogleTests\ExternallyLinkedGoogleTests.exe
 
-

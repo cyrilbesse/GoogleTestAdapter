@@ -10,4 +10,3 @@ The following Tests are available:
 
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\SampleTests\${ConfigurationName}\CrashingTests.exe
 
-
