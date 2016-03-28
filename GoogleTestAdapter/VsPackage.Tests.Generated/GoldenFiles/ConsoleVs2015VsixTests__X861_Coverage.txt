@@ -1,8 +1,6 @@
 Microsoft (R) Test Execution Command Line Tool Version ${ToolVersion} Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\StaticallyLinkedGoogleTests\StaticallyLinkedGoogleTests.exe
-
 Information: Running 2 tests...
 
 Information: Test execution completed.
@@ -28,3 +26,6 @@ at #1 - main.cpp:40 in c:\prod\gtest-1.7.0\staticallylinkedgoogletests\main.cpp:
 at #2 - main.cpp:41 in c:\prod\gtest-1.7.0\staticallylinkedgoogletests\main.cpp:line 41Test Run Failed.
 
 Google Test Adapter Coverage Marker
+Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\StaticallyLinkedGoogleTests\StaticallyLinkedGoogleTests.exe
+
+

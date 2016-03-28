@@ -135,6 +135,16 @@ namespace GoogleTestAdapter.VsPackage
                 resultString += "\n\nGoogle Test Adapter Coverage Marker";
             }
 
+            string testInformationPattern =
+                @"Information: Found \$\{NrOfTests\} tests in executable .*\\\$\{ConfigurationName\}.*\n\n";
+            Match match = Regex.Match(resultString, testInformationPattern);
+            if (match.Success)
+            {
+                resultString = resultString.Trim() + "\n";
+                resultString = resultString.Replace(match.Value, "");
+                resultString += match.Value + "\n";
+            }
+
             return resultString;
         }
 

@@ -2,8 +2,6 @@ Microsoft (R) Test Execution Command Line Tool Version ${ToolVersion} Copyright 
 
 Starting test execution, please wait...
 Warning: Using Isolation mode to run the tests as diagnostic data adapters were enabled in the runsettings. Use the /inIsolation parameter to suppress this warning.
-Information: Found ${NrOfTests} tests in executable ..\..\..\..\SampleTests\${ConfigurationName}\Tests.exe
-
 Warning: No test is available in ..\..\..\..\SampleTests\${ConfigurationName}\Tests.exe. Make sure that installed test discoverers & executors, platform & framework version settings are appropriate and try again.
 
 
@@ -16,3 +14,6 @@ Error: ERROR: Exception while running tests: Microsoft.VisualStudio.TestPlatform
 
 
 Google Test Adapter Coverage Marker
+Information: Found ${NrOfTests} tests in executable ..\..\..\..\SampleTests\${ConfigurationName}\Tests.exe
+
+
