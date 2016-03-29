@@ -26,8 +26,4 @@ at #2 - main.cpp:41 in c:\prod\gtest-1.7.0\staticallylinkedgoogletests\main.cpp:
 Google Test Adapter Coverage Marker
 
 Information: Test execution completed.
-
-
-
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\StaticallyLinkedGoogleTests\StaticallyLinkedGoogleTests.exe
-

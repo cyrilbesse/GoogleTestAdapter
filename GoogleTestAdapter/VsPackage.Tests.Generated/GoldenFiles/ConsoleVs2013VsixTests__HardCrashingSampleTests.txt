@@ -37,8 +37,4 @@ Stack Trace:
 at crash suspect in ${BaseDir}\sampletests\crashingtests\crashingtests.cpp:line 21Test Run Failed.
 
 Information: Test execution completed.
-
-
-
 Information: Found ${NrOfTests} tests in executable ..\..\..\..\SampleTests\${ConfigurationName}\CrashingTests.exe
-

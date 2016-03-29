@@ -11,8 +11,4 @@ Test Run Successful.
 Test execution time: ${RunTime}
 
 Information: Test execution completed.
-
-
-
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\ExternallyLinkedGoogleTests\ExternallyLinkedGoogleTests.exe
-

@@ -67,8 +67,4 @@ at #1 - parameterizedtests.cpp:34 in ${BaseDir}\sampletests\tests\parameterizedt
 at #2 - parameterizedtests.cpp:35 in ${BaseDir}\sampletests\tests\parameterizedtests.cpp:line 35Test Run Failed.
 
 Information: Test execution completed.
-
-
-
 Information: Found ${NrOfTests} tests in executable ..\..\..\..\SampleTests\${ConfigurationName}\Tests.exe
-

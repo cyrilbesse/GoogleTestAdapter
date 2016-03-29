@@ -3,6 +3,4 @@ Microsoft (R) Test Execution Command Line Tool Version ${ToolVersion} Copyright 
 The following Tests are available:
     FooTest.MethodBarDoesAbc
     FooTest.DoesXyz
-
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\GoogleTestAdapter\Core.Tests\bin\${ConfigurationName}\Resources\TestData\_x86\StaticallyLinkedGoogleTests\StaticallyLinkedGoogleTests.exe
-

@@ -11,6 +11,4 @@ Error: ERROR: Exception while running tests: Microsoft.VisualStudio.TestPlatform
 
 
 Google Test Adapter Coverage Marker
-
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\SampleTests\${ConfigurationName}\Tests.exe
-

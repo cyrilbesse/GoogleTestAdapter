@@ -7,6 +7,4 @@ The following Tests are available:
     Crashing.AddFailsAfterCrash
     Crashing.AddPassesAfterCrash
     Crashing.LongRunning
-
 Information: Found ${NrOfTests} tests in executable ${BaseDir}\SampleTests\${ConfigurationName}\CrashingTests.exe
-
