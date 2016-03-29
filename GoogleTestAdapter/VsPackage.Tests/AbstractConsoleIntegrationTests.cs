@@ -151,7 +151,8 @@ namespace GoogleTestAdapter.VsPackage
             if (match.Success)
             {
                 resultString = Regex.Replace(resultString, testInformationPattern, "");
-                resultString += "\n\n" + match.Value;
+                resultString = resultString.Trim();
+                resultString += "\n" + match.Value.Trim();
             }
 
             return resultString;
